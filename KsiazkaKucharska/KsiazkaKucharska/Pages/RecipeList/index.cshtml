@@ -1,0 +1,59 @@
+﻿@page
+@model KsiazkaKucharska.Pages.RecipeList.IndexModel
+@{
+    ViewData["Title"] = "Przepisy";
+}
+
+<h1 align="center" class="myfont1">Przepisy</h1>
+<br/>
+<br/>
+<div class="container row p-0 m-0">
+    <div class="col-9">
+        <h2 class="text-info">Lista</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Dodaj nowy przepis</a>
+    </div>
+</div>
+
+<div class="col-12 border p-3 mt-3" >
+    <form method="post">
+        @if (Model.Recipes.Count() >0)
+        {
+            <table class="table table-striped border">
+                <tr >
+                    <th>
+                        <label asp-for="Recipes.FirstOrDefault().Nazwa"></label>
+                    </th>
+                    <th>
+                        <label asp-for="Recipes.FirstOrDefault().Czas"></label>
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                @foreach(var item in Model.Recipes)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m=> item.Nazwa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Czas)
+                        </td>
+                        <td>
+                            <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Czy na pewno chcesz usunąć przepis?')" class="btn btn-danger btn-sm">Usuń</button>
+                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edytuj</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        }
+        else
+        {
+            <p>Nie znaleziono żadnego przepisu.</p>
+        }
+    </form>
+</div>
+

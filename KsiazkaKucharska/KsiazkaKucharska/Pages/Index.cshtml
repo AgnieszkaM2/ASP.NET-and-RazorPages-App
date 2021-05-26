@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center">
+        <h1 class="myfont1"><i>Książka kucharska</i></h1>
+        <br/>
+        <h2 class="myfont2"><i>dla studentów</i></h2>
+        <br/>
+        <br/>
+        <p><h4 class="myfont3">Przeglądaj, dodawaj i edytuj przepisy na stronie</h4></p>
+        <br/>
+        <br/>
+        <hr />
+        <br/>
+        <p>
+            <h3 class="myfont">Dodaj swój przepis</h3>
+            <br/>
+            <a asp-page="/RecipeList/Create"><img src="files/icons/add.png" class="imm"/></a>
+        </p>
+    </div>

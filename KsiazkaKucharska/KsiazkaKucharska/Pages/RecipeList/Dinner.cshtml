@@ -1,0 +1,117 @@
+﻿@page
+@model KsiazkaKucharska.Pages.RecipeList.DinnerModel
+@{
+    ViewData["Title"] = "Dinner";
+    Layout = "/Pages/Shared/_Layoutd.cshtml";
+}
+
+<h1 align="center" class="myfont1">Przepisy na obiad</h1>
+<br />
+<br />
+<div class="text-center">
+    @if (Model.Recipes.Count() > 0)
+    {
+    <table class="table table-striped border">
+
+
+        @foreach (var item in Model.Recipes)
+        {
+            String rodz = "Obiad";
+            if (item.Rodzaj == rodz)
+            {
+                <tr align="center">
+                    <th>
+                        <label asp-for="Recipes.FirstOrDefault().Nazwa"></label>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Nazwa)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label asp-for="Recipes.FirstOrDefault().Opis"></label>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Opis)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label asp-for="Recipes.FirstOrDefault().Czas">Czas przygotowania</label>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Czas)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label asp-for="Recipes.FirstOrDefault().Porcja"></label>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Porcja)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label asp-for="Recipes.FirstOrDefault().Rodzaj"></label>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Rodzaj)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label asp-for="Recipes.FirstOrDefault().Skladniki"></label>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Skladniki)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label asp-for="Recipes.FirstOrDefault().Instrukcje"></label>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Instrukcje)
+                    </td>
+                </tr>
+
+            }
+            <tr class="p">
+                <th>
+
+                </th>
+            </tr>
+            <tr class="p">
+                <th>
+
+                </th>
+
+            </tr>
+        }
+
+    </table>
+
+
+    }
+    else
+    {
+        <p>Nie znaleziono żadnego przepisu.</p>
+    }
+
+</div>
+

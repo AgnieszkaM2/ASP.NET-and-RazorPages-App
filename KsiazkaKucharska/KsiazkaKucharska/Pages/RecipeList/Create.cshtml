@@ -1,0 +1,68 @@
+﻿@page
+@model KsiazkaKucharska.Pages.RecipeList.CreateModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layoutadd.cshtml";
+}
+
+<br/>
+<h2 class="text-info" align="center">Dodaj nowy przepis</h2>
+<br/>
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <div class="col-4">
+            <label asp-for="Recipe.Nazwa"></label>
+        </div>
+        <div class="col-6">
+            <input asp-for="Recipe.Nazwa" class="form-control" />
+        </div>
+        <div class="col-4">
+            <label asp-for="Recipe.Opis"></label>
+        </div>
+        <div class="col-6">
+            <textarea asp-for="Recipe.Opis" class="form-control"></textarea>
+        </div>
+        <div class="col-4">
+            <label asp-for="Recipe.Czas">Czas przygotowania</label>
+        </div>
+        <div class="col-6">
+            <input asp-for="Recipe.Czas" class="form-control" />
+        </div>
+        <div class="col-4">
+            <label asp-for="Recipe.Porcja"></label>
+        </div>
+        <div class="col-6">
+            <input asp-for="Recipe.Porcja" class="form-control" />
+        </div>
+        <div class="col-4">
+            <label asp-for="Recipe.Skladniki"></label>
+        </div>
+        <div class="col-6">
+            <textarea asp-for="Recipe.Skladniki" class="form-control"></textarea>
+        </div>
+        <div class="col-4">
+            <label asp-for="Recipe.Instrukcje"></label>
+        </div>
+        <div class="col-6">
+            <textarea asp-for="Recipe.Instrukcje" class="form-control"></textarea>
+        </div>
+       
+        <div class="col-4">
+            <label asp-for="Recipe.Rodzaj">Rodzaj dania</label>
+        </div>
+        <div class="col-6">
+            <input asp-for="Recipe.Rodzaj" class="form-control" />
+        </div>
+        <br/>
+        <br/>
+        <div class="form-group row">
+            <div class="col-3 offset-4">
+                <input type="submit" value="Dodaj" class="btn btn-primary form-control" />
+            </div>
+            <div class="col-3">
+                <a asp-page="index" class="btn btn-success form-control">Powrót</a>
+            </div>
+        </div>
+    </form>
+</div>
+
